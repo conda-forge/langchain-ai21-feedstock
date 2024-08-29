@@ -1,5 +1,5 @@
 {% set name = "langchain-ai21" %}
-{% set version = "0.1.7" %}
+{% set version = "0.1.8" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/langchain_ai21-{{ version }}.tar.gz
-  sha256: 3f4863102e092eac4fab04ab1496701ea7c100a50ad8e467f0471cfaa2e1871f
+  sha256: d1b392dd5da0e38bc20e4a51d3540c253da3d1cb0361be37a2d3f1520437bfa8
 
 build:
   noarch: python
@@ -21,9 +21,9 @@ requirements:
     - pip
   run:
     - python >=3.8.1,<4.0
-    - langchain-core >=0.2.4,<0.3.0
+    - langchain-core >=0.2.36,<0.3.0
     - langchain-text-splitters >=0.2.0,<0.3.0
-    - ai21 >=2.7.0,<3.0.0
+    - ai21 >=2.14.1,<3.0.0
 
 test:
   imports:
