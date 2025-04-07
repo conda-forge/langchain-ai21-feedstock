@@ -1,5 +1,5 @@
 {% set name = "langchain-ai21" %}
-{% set version = "1.0.1" %}
+{% set version = "1.1.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/langchain_ai21-{{ version }}.tar.gz
-  sha256: 659382309deb447ae43b6add75689b937bb47ff48e507f37c5b06252220e96c2
+  sha256: 16706edd9ba27e9abb18341351ba368b04a29fe6193dac9b476e8238128d50f3
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
