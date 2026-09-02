@@ -1,0 +1,48 @@
+schema_version: 1
+
+context:
+  name: langchain-ai21
+  version: 1.2.0
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/langchain_ai21-${{ version }}.tar.gz
+  sha256: e39e115a846822b6c9a65f2f31451b34ff8a3dfec50d35833a060ef81487868f
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - poetry-core >=1.0.0
+    - pip
+  run:
+    - python >=${{ python_min }},<4.0
+    - langchain-core >=0.3.0,<0.4.0
+    - langchain-text-splitters >=0.3.0,<0.4.0
+    - ai21 >=3.3.0,<4.0.0
+
+tests:
+  - python:
+      imports:
+        - langchain_ai21
+      pip_check: true
+      python_version:
+        - ${{ python_min }}
+        - "*"
+
+about:
+  summary: An integration package connecting AI21 and LangChain
+  license: MIT
+  license_file: LICENSE
+  homepage: https://github.com/langchain-ai/langchain
+
+extra:
+  recipe-maintainers:
+    - jan-janssen
